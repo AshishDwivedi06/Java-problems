@@ -1,0 +1,42 @@
+/*
+// Information about the arguments given in function
+arr[]: input array
+start: starting index of array
+end: ending index of array
+*/
+static int partition(int arr[], int start, int end){
+      int pivot = arr[start];
+      int i = start-1, j = end+1;
+      while(true){
+            do{
+                  i++;
+            }
+            while(arr[i]<pivot);
+            do{
+                  j--;
+            }
+            while(arr[j]>pivot);
+            if(i>=j){
+                  return j;
+            }
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+
+            
+      }
+}
+public static int[] quickSort(int arr[], int start, int end)
+{
+       // Your code here
+      // You can create your own helper function
+      if(start<end){
+            int p  = partition(arr,start,end);
+            quickSort(arr,start,p);
+            quickSort(arr,p+1,end);
+      }
+      return arr;
+
+      
+       
+}
